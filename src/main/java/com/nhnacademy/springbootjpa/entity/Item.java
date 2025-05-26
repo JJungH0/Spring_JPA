@@ -10,16 +10,25 @@ package com.nhnacademy.springbootjpa.entity;
  *     price bigint      not null
  * );
  */
+
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@Entity
 public class Item {
-    public long getId() {
-        return 0;
-    }
 
-    public String getName() {
-        return null;
-    }
+    @Id
+    // DB에서 값을 자동으로 증가시켜줄 것을 명령
+    // MySQL (= AUTO_INCREMENT)
+    // H2 (= IDENTITY)와 같음
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    public long getPrice() {
-        return 0;
-    }
+    private String name;
+
+    private Long price;
+
 }
