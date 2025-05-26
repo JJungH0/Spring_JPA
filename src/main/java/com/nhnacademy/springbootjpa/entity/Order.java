@@ -1,5 +1,9 @@
 package com.nhnacademy.springbootjpa.entity;
 
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 import java.time.ZonedDateTime;
 
 // TODO #1: `order` 테이블과 매핑될 `Order` Entity 클래스를 작성하세요.
@@ -11,12 +15,16 @@ import java.time.ZonedDateTime;
  *     ordered_at datetime not null
  * );
  */
+@Getter
+@Entity
+@NoArgsConstructor
 public class Order {
-    public long getId() {
-        return 0;
-    }
 
-    public ZonedDateTime getOrderedAt() {
-        return null;
-    }
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
+
+    private ZonedDateTime orderedAt;
+
+
 }
