@@ -22,18 +22,19 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public User create(String id, String password) {
+    public User create(String id, String password, int age) {
         if (userRepository.existsById(id)) {
             throw new IllegalStateException("User(id = " + id + ") already exists.");
         }
-        return userRepository.save(new User(id, password));
+        return userRepository.save(new User(id, password, age));
     }
 
     @Transactional
     @Override
-    public User modifyById(String id, String password) {
+    public User modifyById(String id, String password, int age) {
         User user = getById(id);
         user.setPassword(password);
+        user.setAge(age);
         return user;
     }
 }

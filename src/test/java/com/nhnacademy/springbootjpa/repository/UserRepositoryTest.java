@@ -20,7 +20,7 @@ class UserRepositoryTest {
     @Test
     void findUserTest() {
         // given
-        String id = "admin";
+        String id = "no_user";
         String password = "12345";
 
         // when
@@ -35,7 +35,7 @@ class UserRepositoryTest {
     @Test
     void userNotFoundTest() {
         // given
-        String id = "admin";
+        String id = "no_user";
 
         // when
         User user = userRepository.findById(id).orElse(null);
@@ -49,7 +49,8 @@ class UserRepositoryTest {
         // given
         String id = "test";
         String password = "12345";
-        User user = new User(id, password);
+        int age = 20;
+        User user = new User(id, password, age);
         userRepository.save(user);
 
         // when

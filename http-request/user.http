@@ -10,7 +10,8 @@ Content-Type: application/json
 
 {
   "id": "nhn",
-  "password": "academy"
+  "password": "academy",
+  "age": 10
 }
 
 ### Get user(id = nhn)
@@ -21,7 +22,8 @@ PUT http://localhost:8080/users/nhn
 Content-Type: application/json
 
 {
-  "password": "hahaha"
+  "password": "hahaha",
+  "age": 30
 }
 
 ### Get user(id = nhn)
