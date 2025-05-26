@@ -78,7 +78,9 @@ class EntityManagerTest {
     @Test
     void test4() {
         // 영속성 컨텍스트(1차 캐시)에 존재하지 않기 때문에
-        // DB에 실질적인 SELECT쿼리를 한번 보냄 (이떄 자동으로 영속상태로 변경)
+        // DB에 실질적인 SELECT쿼리를 한번 보냄 <----- (이떄 자동으로 영속상태로 변경)
+        // 어그러면 persist로 영속상태로 전환안했으니
+        // 계속 DB에서 SELECT로 질의하는거 아닐까? -> 아님
         User user1 = entityManager.find(User.class, "admin");
         // 이후부터 영속상태에 admin이라는 엔터티가 존재하니
         // 실질적인 쿼리 발생은 SELECT1회
