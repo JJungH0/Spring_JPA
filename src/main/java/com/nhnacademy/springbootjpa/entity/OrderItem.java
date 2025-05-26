@@ -15,16 +15,22 @@ package com.nhnacademy.springbootjpa.entity;
  *         foreign key (order_id) references "order" (id)
  * );
  */
+
+import jakarta.persistence.EmbeddedId;
+import jakarta.persistence.Entity;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Getter
+@Entity
+@NoArgsConstructor
 public class OrderItem {
-    public OrderItemPk getPk() {
-        return null;
-    }
 
-    public long getItemId() {
-        return 0;
-    }
+    @EmbeddedId
+    private OrderItemPk pk;
 
-    public int getQuantity() {
-        return 0;
-    }
+    private long itemId;
+
+    private int quantity;
+
 }
