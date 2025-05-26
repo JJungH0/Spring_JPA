@@ -33,18 +33,19 @@ public class UserRepositoryImpl implements UserRepository {
     @Override
     public User getById(String id) {
         return jdbcTemplate.queryForObject(
-                "select id, password from `user` where id = ?1",
+                "select * from `user` where id = ?1",
                 new UserRowMapper(),
                 id
         );
     }
 
     @Override
-    public boolean create(String id, String password) {
+    public boolean create(String id, String password, int age) {
         int result = jdbcTemplate.update(
-                "insert into `user` (id, password) values (?, ?)",
+                "insert into `user` (id, password, age) values (?, ?, ?)",
                 id,
-                password
+                password,
+                age
         );
         return result == 1;
     }

@@ -10,7 +10,8 @@ Content-Type: application/json
 
 {
   "id": "nhn",
-  "password": "academy"
+  "password": "academy",
+  "age": 30
 }
 
 ### Get user(id = nhn)
