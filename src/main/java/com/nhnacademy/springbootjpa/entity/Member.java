@@ -20,6 +20,7 @@ public class Member {
     private String name;
 
     @Setter
-    @OneToOne
+//    @OneToOne(optional = false) not null
+    @OneToOne(optional = true) // null 허용 가능.
     private Locker locker;
 }
