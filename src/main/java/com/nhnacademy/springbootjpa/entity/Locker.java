@@ -18,7 +18,11 @@ public class Locker {
     @NotNull
     private String name;
 
-    @Setter
     @OneToOne
     private Member member;
+
+    public void setMember(Member member) {
+        this.member = member;
+        member.setLocker(this);
+    }
 }

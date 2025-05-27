@@ -19,7 +19,16 @@ public class Member {
     @NotNull
     private String name;
 
-    @Setter
     @OneToOne(mappedBy = "member")
+    // mappedBy -> 관계를 소유하는 필드 지정(애는 주인이 아님)
     private Locker locker;
+
+    public void setLocker(Locker locker) {
+        this.locker = locker;
+
+        if (locker.getMember() != null) {
+            locker.setMember(this);
+        }
+
+    }
 }
