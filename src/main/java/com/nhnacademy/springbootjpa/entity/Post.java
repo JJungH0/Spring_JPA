@@ -22,6 +22,8 @@ public class Post {
     @NotNull
     private String content;
 
+    // 다대일 관계 || Not Null -> 회원이 없을 때 게시물도 존재하지 않는다.
+    // 만약 회원이 없어도 게시물을 남길려면? true로 변경
     @ManyToOne(optional = false)
     private Member member;
 
