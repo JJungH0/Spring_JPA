@@ -52,8 +52,10 @@ class ItemRepositoryTest {
 
         // when
         // TODO: #2-1 itemRepository 에 생성한 메서드를 위의 prices 매개변수를 줘서 호출하세요.
-        List<Item> items = null;
-
+        List<Item> items = itemRepository.findByPriceIn(prices);
+        System.out.println("================");
+        // [Item(id=2, name=grape, price=200), Item(id=9, name=orange, price=200), Item(id=11, name=melon, price=100)]
+        System.out.println(items);
         // then
         assertThat(items).hasSize(3);
     }

@@ -3,7 +3,9 @@ package com.nhnacademy.springbootjpa.repository;
 import com.nhnacademy.springbootjpa.entity.Item;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.Collection;
 import java.util.List;
+import java.util.PrimitiveIterator;
 
 public interface ItemRepository extends JpaRepository<Item, Long> {
     // select *
@@ -32,4 +34,7 @@ public interface ItemRepository extends JpaRepository<Item, Long> {
     // select *
     // from item
     // where price in (...)
+
+    // SELECT * FROM item WHERE price IN (100,200)
+    List<Item> findByPriceIn(Collection<Long> prices);
 }
