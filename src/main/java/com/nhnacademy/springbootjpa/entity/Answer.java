@@ -22,28 +22,26 @@ import java.time.ZonedDateTime;
  */
 @Entity
 @Getter @Setter
-@AllArgsConstructor
 @NoArgsConstructor
 public class Answer {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
-    @Column(name = "question_id")
-    @NotNull
-    private Long questionId;
-
-    @NotNull
-    private String content;
-
-    @Column(name = "created_at")
-    @NotNull
-    private ZonedDateTime createdAt;
-
     public Answer(long questionId, String content, ZonedDateTime createdAt) {
         this.questionId = questionId;
         this.content = content;
         this.createdAt = createdAt;
     }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+
+    @Column(nullable = false,name = "question_id")
+    private Long questionId;
+
+    @Column(nullable = false)
+    private String content;
+
+    @Column(nullable = false, updatable = false, name = "created_at")
+    private ZonedDateTime createdAt;
+
 
 }

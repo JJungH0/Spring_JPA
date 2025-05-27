@@ -1,6 +1,7 @@
 package com.nhnacademy.springbootjpa.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -29,12 +30,13 @@ public class Question {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(length = 100)
+    @Column(nullable = false,length = 100)
     private String title;
 
+    @Column(nullable = false)
     private String content;
 
-    @Column(name = "created_at")
+    @Column(nullable = false, updatable = false, name = "created_at")
     private ZonedDateTime createdAt;
 
 
