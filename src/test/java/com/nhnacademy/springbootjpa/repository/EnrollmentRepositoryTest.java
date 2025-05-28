@@ -12,7 +12,7 @@ import java.util.List;
 import static org.assertj.core.api.Assertions.assertThat;
 
 // TODO #7: 아래 `@Disabled` 어노테이션을 삭제하고 테스트를 통과시키세요.
-@Disabled("temporary")
+//@Disabled("temporary")
 @DataJpaTest
 class EnrollmentRepositoryTest {
 
@@ -22,10 +22,10 @@ class EnrollmentRepositoryTest {
     @Sql("enrollment-test.sql")
     @Test
     void test() {
-        List<Enrollment> enrollments1 = enrollmentRepository.changeThisMethodName1("nhn");
+        List<Enrollment> enrollments1 = enrollmentRepository.findByStudentName("nhn");
         assertThat(enrollments1).hasSize(3);
 
-        List<Enrollment> enrollments2 = enrollmentRepository.changeThisMethodName2("jpa");
+        List<Enrollment> enrollments2 = enrollmentRepository.findByCourseName("jpa");
         assertThat(enrollments2).hasSize(2);
     }
 
