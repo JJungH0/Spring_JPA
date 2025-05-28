@@ -20,4 +20,11 @@ public class GetMemberController {
     public Page<MemberNameOnlyView> findAll(@PageableDefault Pageable pageable) {
         return memberRepository.findAllBy(pageable);
     }
+
+    // 500 -> 에러발생
+    // 세션이 닫힌 뒤에 지연 로딩(LAZY fetch) 컬렉션에 접근해서 생기는 문제
+//    @GetMapping("/members")
+//    public Page<Member> findAll(Pageable pageable) {
+//        return memberRepository.findAll(pageable);
+//    }
 }
