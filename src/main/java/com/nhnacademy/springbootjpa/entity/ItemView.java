@@ -8,14 +8,18 @@ import java.util.List;
 // TODO #2: ItemView 프로젝션 인터페이스 - test case를 통과할 수 있도록 ItemView를 작성하세요.
 public interface ItemView {
 
-    List<OrderItemView> getOrderItems();
+    String getName(); // Item의 name
 
-    interface OrderItemView {
-        OrderView getOrder();
+    List<OrderItemView> getOrderItems(); // Item -> List<OrderItem>
+
+    interface OrderItemView { // OrderItem의 정보를 담는 중첩 인터페이스
+        Integer getQuantity(); // OrderItem의 quantity 필드
+
+        OrderView getOrder(); // OrderItem -> Order
     }
 
-    interface OrderView {
+    interface OrderView { // Order의 정보를 담는 중첩 인터페이스
         @JsonFormat(pattern = "yyyy-MM-dd")
-        ZonedDateTime getOrderedAt();
+        ZonedDateTime getOrderedAt(); // Order의 orderedAt 필드
     }
 }
