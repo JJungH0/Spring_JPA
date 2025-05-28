@@ -9,6 +9,6 @@ import java.util.List;
 public interface MemberRepository extends JpaRepository<Member, Long> {
 
     // TODO #1: join fetch를 사용하도록 쿼리를 작성하세요.
-    @Query("select m from Member m")
+    @Query("select m from Member m join FETCH m.locker")
     List<Member> findAllWithAssociation();
 }
